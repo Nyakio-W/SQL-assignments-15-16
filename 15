@@ -1,0 +1,52 @@
+Difficulties Encountered:
+Importing this dataset into MySQL Workbench did not present major difficulties, 
+as the dataset appears to be well-structured with clear column headers and consistent data types (e.g., integer, varchar). 
+
+
+Interesting Observations:
+One interesting thing about this dataset is the diversity in demographic and behavioral attributes captured:
+
+Age and Gender: The dataset includes a range of ages and genders, including non-binary individuals.
+Time Spent: Indicates the time spent on various social media platforms.
+Location and Demographics: Shows different locations (United Kingdom, United States, Australia) and demographic profiles (urban, sub-urban, rural).
+Profession and Income: Profiles various professions (software engineer, student, marketer manager) and income levels.
+Ownership and Indebtedness: Details ownership status (home, car) and financial information (indebtedness).
+
+
+
+
+Cool Fact : Top 3 Countries with Active Users
+
+SQL
+SELECT country, COUNT(*) AS user_count
+FROM social_media_users
+GROUP BY country
+ORDER BY user_count DESC
+LIMIT 3;
+
+
+Question 1: What are the most popular interests among users in a specific country?
+
+
+Query:
+
+SQL
+SELECT interests, COUNT(*) AS user_count
+FROM social_media_users
+WHERE country = 'United States'  
+GROUP BY interests
+ORDER BY user_count DESC
+LIMIT 10;
+
+Question 2: Is there a correlation between age and preferred social media platform (if provided in the data)?
+
+
+SQL
+SELECT age_group, platform, COUNT(*) AS user_count
+FROM social_media_users
+GROUP BY age_group, platform
+ORDER BY age_group, user_count DESC;
+
+
+
+
